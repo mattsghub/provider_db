@@ -1,4 +1,11 @@
-Flask-Bootstrap
+Flask-openid
+Flask-mail
+sqlalchemy-migrate
+flask-whooshalchemy
+flask-babel
+guess_language
+flipflop
+coverage
 Flask-Migrate
 Flask-Login
 Flask-SQLAlchemy

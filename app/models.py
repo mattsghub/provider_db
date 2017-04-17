@@ -4,13 +4,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login_manager
 
 
-class User(UserMixin, db.Model)
+class User(UserMixin, db.Model):
     """
     Create a User table
     """
     # Ensures table will be named in plural and not in singular
     # as is the name of the model
-    
+
     __tablename__ = 'user'
 
     id_user = db.Column(db.Integer, primary_key=True)
@@ -91,7 +91,7 @@ class Provider(db.Model):
     address = db.Column(db.String(255))
     city = db.Column(db.String(45))
     state = db.Column(db.String(45))
-    zip = db.Column(db.String(10))    
+    zip = db.Column(db.String(10))
 
 class Provider_Specialty(db.Model):
     """
