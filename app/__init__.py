@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 
 # local imports
 from config import app_config
-from instance import config as iconfig
+#from instance import config as iconfig
 
 # db variable initialization
 db = SQLAlchemy()
@@ -18,12 +18,12 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('config.py')
     app.config["DEBUG"] = True
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-        username="mattspython",
-        password="password123",
-        hostname="mattspython.mysql.pythonanywhere-services.com",
-        databasename="mattspython$provider_db",
-        )#iconfig.SQLALCHEMY_DATABASE_URI
+    #app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    #    username="mattspython",
+    #    password="password123",
+    #    hostname="mattspython.mysql.pythonanywhere-services.com",
+    #    databasename="mattspython$provider_db",
+    #    )#iconfig.SQLALCHEMY_DATABASE_URI
     app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
     db.init_app(app)
@@ -38,8 +38,8 @@ def create_app(config_name):
     migrate = Migrate(app, db)
     from app import models
 
-    #@app.route('/')
-    #def hello_world():
-    #    return 'Hello, World!'
+    @app.route('/')
+    def hello_world():
+        return 'Hello, World!'
 
     return app
